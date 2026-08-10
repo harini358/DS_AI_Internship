@@ -1,0 +1,12 @@
+import numpy as np
+x=np.array([[2,1,1],[2,1,3]])
+print(x.reshape(6,1))
+print(x.flatten())
+print(x.transpose())
+a=np.array([[1,2],[2,3]])
+b=np.array([[2,3],[4,5]])
+print(np.vstack((a,b)))
+print(np.hstack((a,b)))
+print(x.shape)
+print(np.concatenate((a,b),axis=0))
+print(np.concatenate((a,b),axis=1))
