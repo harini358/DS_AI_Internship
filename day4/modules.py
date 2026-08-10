@@ -10,7 +10,6 @@ print("Factorial:", math.factorial(5))
 print("Ceil:", math.ceil(4.2))
 print("Floor:", math.floor(4.8))
 
-
 print("Random number:", random.randint(1, 10))
 
 print("Current date and time:", datetime.datetime.now())
