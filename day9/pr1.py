@@ -1,0 +1,100 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style="whitegrid")
+df =  pd.read_excel(r"C:\Users\MYHP\Desktop\DS_AI_Internship\eda.xlsx")
+# View first and last rows
+print("\nFirst 5 rows:")
+print(df.head())
+
+print("\nLast 5 rows:")
+print(df.tail())
+
+# Dataset shape
+print("\nDataset shape (rows, columns):", df.shape)
+
+# Data types and missing values
+print("\nDataset info:")
+print(df.info())
+
+# Summary statistics for numerical columns
+print("\nSummary statistics:")
+print(df.describe())
+
+# HISTOGRAM — Distribution of Age
+plt.figure()
+sns.histplot(df["age"], kde=True)
+plt.title("Age Distribution")
+plt.show()
+
+# HISTOGRAM — Distribution of Salary
+plt.figure()
+sns.histplot(df["salary"], kde=True)
+plt.title("Salary Distribution")
+plt.show()
+
+# BOXPLOT — Detect spread & outliers in Salary
+plt.figure()
+sns.boxplot(x=df["salary"])
+plt.title("Salary Boxplot")
+plt.show()
+
+# CATEGORICAL ANALYSIS — Frequency counts
+print("\nDepartment counts:")
+print(df["department"].value_counts())
+
+print("\nGender counts:")
+print(df["gender"].value_counts())
+
+# Bar plot for categorical variable
+plt.figure()
+sns.countplot(x="department", data=df)
+plt.title("Department Distribution")
+plt.show()
+
+# SCATTER PLOT — Age vs Salary
+plt.figure()
+sns.scatterplot(x="age", y="salary", data=df)
+plt.title("Age vs Salary")
+plt.show()
+
+# SCATTER PLOT — Experience vs Salary
+plt.figure()
+sns.scatterplot(x="experiance", y="salary", data=df)
+plt.title("Experience vs Salary")
+plt.show()
+
+# BOXPLOT — Salary by Gender
+plt.figure()
+sns.boxplot(x="gender", y="salary", data=df)
+plt.title("Salary by Gender")
+plt.show()
+
+# BOXPLOT — Salary by Department
+plt.figure()
+sns.boxplot(x="department", y="salary", data=df)
+plt.title("Salary by Department")
+plt.show()
+
+# Correlation matrix (numerical columns only)
+corr_matrix = df.corr(numeric_only=True)
+print("\nCorrelation Matrix:")
+print(corr_matrix)
+
+# HEATMAP — visualize correlations
+plt.figure()
+sns.heatmap(corr_matrix, annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()
+
+# Boxplot for Age
+plt.figure()
+sns.boxplot(x=df["age"])
+plt.title("Age Outliers")
+plt.show()
+
+# Boxplot for Experience
+plt.figure()
+sns.boxplot(x=df["experiance"])
+plt.title("Experience Outliers")
+plt.show()

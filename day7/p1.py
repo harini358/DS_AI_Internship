@@ -61,3 +61,7 @@ print("\nShape after removing duplicates:", df.shape)
 
 print("\nFinal cleaned dataset:")
 print(df.head())
+
+print(df.describe())
+
+print(df.tail())
